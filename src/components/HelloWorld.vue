@@ -19,8 +19,8 @@ import { RouterLink, RouterView } from 'vue-router'
       
   </div>
   <div class="flex gap-10">
-    <a href="#Episode"class="text-white hover:bg-black duration-500 px-3 py-2 rounded-3xl">Episodes</a>
-  <!-- <a href="#" class="text-white hover:bg-black duration-500 px-3 py-2 rounded-3xl"></a> -->
+  <a href="https://github.com/stellarIV/Rick-N-Morty.git" target="_blank" class="text-white hover:bg-black duration-500 px-3 py-2 rounded-3xl"><img class="h-5 w-5" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/github.png" alt="github"/></a>
+  <a href="#Episode"class="text-white hover:bg-black duration-500 px-3 py-2 rounded-3xl">Episodes</a>
   <a href="#Character" class="text-white hover:bg-black duration-500 px-3 py-2 rounded-3xl">Charachers</a>
   <a href="#Location" class="text-white hover:bg-black duration-500 px-3 py-2 rounded-3xl">Locations</a></div>
 </div>
