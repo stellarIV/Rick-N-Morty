@@ -1,36 +1,36 @@
 <template>
-    
-    <div id="para" class="flex justify-evenly flex-wrap gap-2 bg-gradient-to-tr from-orange-500 to-slate-800 text-white pb-10 h-full">
-      <home />
-      <div v-if="error">Something went wrong...</div>
-    <div v-if="loading" class="h-[610px] flex justify-center items-center w-[1680px]"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/loading-sign.png" alt="loading" class="animate-pulse duration-200"/></div>
-    <div v-else>
-       <!-- v-for="character in result.character" :key="character.id" class="border justify-evenly bg-slate-500 text-white w-[200px] overflow-hidden rounded-3xl"> -->
-       <div class="flex justify-center text-3xl">
-      <img :src="result.character.image" class=" w-[330px] rounded-lg mr-10"><br>
-      Name- {{ result.character.name }}<br>
-      Status- {{ result.character.status }}<br>
-      Species- {{ result.character.species }}<br>
-      Gender- {{ result.character.gender }}<br>
-      Current location- {{ result.character.location.name }}
-      </div>
-      <div class="text-3xl flex justify-center py-10 text-blue-400">Episodes these characters were part of</div>
-      <div class="grid grid-cols-3 gap-3">
-      <div v-for="char in result.character.episode":key="char.id" class=" bg-[#271cfc32] w-[440px] rounded-3xl my-4 overflow-hidden p-5" >
-        <div class=" w-[400px] items-center">
-            <div class="text-xl">{{ char.episode }}- {{ char.name }}</div>
-          
-            <br/>
-         <span class="text-lg">Air date-</span>  {{ char.air_date }}<br/>
-         <span class="text-lg">Creatiuon time-</span> {{ char.created }}<br/>
+  <div id="para" class="flex flex-col items-center bg-gradient-to-tr from-orange-500 to-slate-800 text-white py-5">
+    <home />
+    <div v-if="error" class="text-center mt-5">Something went wrong...</div>
+    <div v-if="loading" class="h-[610px] flex justify-center items-center w-full">
+      <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/loading-sign.png" alt="loading" class="animate-pulse duration-200"/>
+    </div>
+    <div v-else class="w-full">
+      <div class="flex flex-col items-center space-y-5">
+        <div class="text-3xl">
+          <img :src="result.character.image" class="w-[330px] md:w-[400px] rounded-lg mb-5">
+          <div>
+            <span class="font-bold">Name:</span> {{ result.character.name }}<br>
+            <span class="font-bold">Status:</span> {{ result.character.status }}<br>
+            <span class="font-bold">Species:</span> {{ result.character.species }}<br>
+            <span class="font-bold">Gender:</span> {{ result.character.gender }}<br>
+            <span class="font-bold">Current location:</span> {{ result.character.location.name }}
+          </div>
         </div>
-        
-      </div></div>
-      
+
+        <div class="text-3xl text-blue-400">Episodes these characters were part of</div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+          <div v-for="char in result.character.episode" :key="char.id" class="bg-[#271cfc32] rounded-3xl overflow-hidden p-5">
+            <div class="text-xl">{{ char.episode }} - {{ char.name }}</div>
+            <div class="text-lg"><span class="font-bold">Air date:</span> {{ char.air_date }}</div>
+            <div class="text-lg"><span class="font-bold">Creation time:</span> {{ char.created }}</div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-  
-  </template>
+  </div>
+</template>
   
   <script setup>
   import gql from 'graphql-tag'
